@@ -217,4 +217,6 @@ public:
 // commit 12 menambahkan fungsi main
 int main()
 {
+    // commit 13 memanggil class doublelinkedlist
+    DoubleLinkedList list;
 }
