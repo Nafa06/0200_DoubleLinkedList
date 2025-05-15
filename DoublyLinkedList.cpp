@@ -214,3 +214,7 @@ public:
         }
     }
 };
+// commit 12 menambahkan fungsi main
+int main()
+{
+}
