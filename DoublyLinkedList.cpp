@@ -24,14 +24,13 @@ public:
         START = NULL;
     }
     // commit 5 menambahkan fungsi addNode
-   
     void addNode()
     {
         int nim;
         string nm;
         cout << "\nEnter the roll number of the student: ";
         cin >> nim;
-         // commit 6 menambahkan node newnode sebagai pembantu
+
         // step 1: allocate memory for new node
         Node *newNode = new Node();
 
@@ -59,9 +58,10 @@ public:
             // step 7: START = newNode
             START = newNode;
             return;
-            // insret in between node
+        }
+
+        // insret in between node
         // step 8: locate position for insertion
-        // commit 7 menambahkan node current sebagai pembantu
         Node *current = START;
         while (current->next != NULL && current->next->noMhs < nim)
         {
@@ -83,9 +83,8 @@ public:
             current->next->prev = newNode; // step 9c: current.next.prev = newNode
 
         current->next = newNode; // step 9d: current.next = newNode
-        }
     }
-    // commit 8 menambahkan fungsi hapus
+    // commit 6 menambahkan fungsi hapus
     void hapus()
     {
         if (START == NULL)
@@ -98,7 +97,6 @@ public:
         int rollNo;
         cin >> rollNo;
 
-        // menambahkan node current sebagai pembantu
         Node *current = START;
 
         // step 1: traverse the list to find the node
@@ -132,7 +130,7 @@ public:
         delete current;
         cout << "Record with roll number" << rollNo << " deleted" << endl;
     }
-    // commit 9 menambahkan fungsi traverse
+    // commit 7 menambahkan fungsi traverse
     void traverse()
     {
         if (START == NULL)
@@ -154,7 +152,7 @@ public:
             i++;
         }
     }
-    // commit 10 menambahkan fungsi revtraverse
+    // commit 8 menambahkan fungsi revtraverse
     void revtraverse()
     {
         if (START == NULL)
@@ -183,7 +181,7 @@ public:
             i--;
         }
     }
-     // commit 11 menambahkan fungsi searchData
+    // commit 9 menambahkan fungsi searchData
     void searchData()
     {
         if (START == NULL)
@@ -214,12 +212,12 @@ public:
         }
     }
 };
-// commit 12 menambahkan fungsi main
+// commit 10 menambahkan fungsi main
 int main()
 {
-    // commit 13 memanggil class doublelinkedlist
+    // commit 11 memanggil class doublelinkedlist
     DoubleLinkedList list;
-     // commit 14 menambahkan do untuk memunculkan menu
+    // commit 12 menambahkan switchcase untuk memilih opsi
     char choice;
 
     do
@@ -234,5 +232,39 @@ int main()
         cout << "Enter your choice: ";
 
         cin >> choice;
-    }
+
+        switch (choice)
+        {
+        case '1':
+            list.addNode();
+            break;
+
+        case '2':
+            list.hapus();
+            break;
+
+        case '3':
+            list.traverse();
+            break;
+
+        case '4':
+            list.revtraverse();
+            break;
+
+        case '5':
+            list.searchData();
+            break;
+
+        case '6':
+            return 0;
+
+        default:
+            cout << "Invalid option\n";
+        }
+        cout << "\nPress Enter to continue...";
+        cin.ignore();
+        cin.get();
+        cout << endl;
+        system("clear");
+    } while (choice != '6');
 }
