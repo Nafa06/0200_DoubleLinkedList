@@ -132,4 +132,26 @@ public:
         delete current;
         cout << "Record with roll number" << rollNo << " deleted" << endl;
     }
+    // commit 9 menambahkan fungsi traverse
+    void traverse()
+    {
+        if (START == NULL)
+        {
+            cout << "\nList is empty" << endl;
+            return;
+        }
+
+        // step 1: mark first node as currentNode
+        Node *currentNode = START;
+        // step 2: repeat until currentNode == NULL
+        cout << "\nRecords is ascending order of roll number are:\n";
+        int i = 0;
+        while (currentNode != NULL)
+        {
+            cout << i + 1 << ". " << currentNode->noMhs << " " << endl;
+            // step 3: move to next node
+            currentNode = currentNode->next;
+            i++;
+        }
+    }
 };
